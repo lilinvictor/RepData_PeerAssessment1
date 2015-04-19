@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ## Loading and preprocessing the data
 
@@ -40,11 +45,11 @@ hist(totalSteps$steps,
 	 breaks = 20)
 ```
 
-![](PA1_template_files/figure-html/mean_steps-1.png) 
+![plot of chunk mean_steps](figure/mean_steps-1.png) 
 
 And here are the mean and median of total number of steps taken per day:
 
-- **Mean** = 1.0766189\times 10^{4}
+- **Mean** = 1.0766189 &times; 10<sup>4</sup>
 - **Median** = 10765
 
 ## What is the average daily activity pattern?
@@ -61,7 +66,7 @@ plot(avgSteps,
 	 ylab = "Averaged steps")
 ```
 
-![](PA1_template_files/figure-html/avarage_activity-1.png) 
+![plot of chunk avarage_activity](figure/avarage_activity-1.png) 
 
 And the following 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:
 
@@ -109,12 +114,12 @@ hist(totalStepsFixed$steps,
 	 breaks = 20)
 ```
 
-![](PA1_template_files/figure-html/mean_steps_fixed-1.png) 
+![plot of chunk mean_steps_fixed](figure/mean_steps_fixed-1.png) 
 
 And here are the updated mean and median of total number of steps taken per day:
 
-- **Mean** = 1.0766189\times 10^{4}
-- **Median** = 1.0765594\times 10^{4}
+- **Mean** = 1.0766189 &times; 10<sup>4</sup>
+- **Median** = 1.0765594 &times; 10<sup>4</sup>
 
 Comparing with previous reports for original dataset, there is no obvious difference: mean is same, and median is changed with 0.006%.So the impact of imputing missing data on the estimates of the total daily number of steps is quite tiny here.
 
@@ -133,13 +138,6 @@ avgSteps <- aggregate(steps ~ interval + weekday, fixedData, mean)
 
 # Draw panels to compare average activities
 library(ggplot2)
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.1.3
-```
-
-```r
 qplot(x = interval,
 	  y = steps,
 	  data = avgSteps,
@@ -151,4 +149,4 @@ qplot(x = interval,
 	  ylab = "Averaged number of steps")
 ```
 
-![](PA1_template_files/figure-html/weekday_comparison-1.png) 
+![plot of chunk weekday_comparison](figure/weekday_comparison-1.png) 
